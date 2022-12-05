@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [PageController::class, 'home']);
+Route::resources([
+    'posts' => PostController::class,
+    'tags' => TagController::class,
+    'categories' => CategoryController::class,
+]);
