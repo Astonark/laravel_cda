@@ -15,14 +15,14 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        $posts = Post::all('id', 'title', 'content', 'created_at', 'updated_at');
+        $posts = Post::with('category:id,title')->get(['id', 'title', 'content', 'category_id', 'created_at', 'updated_at']);
         return view('posts.index', compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): view
+    public function create(): View
     {
         return view('posts.create');
     }
@@ -41,8 +41,8 @@ class PostController extends Controller
      */
     public function show(int $id): View
     {
-        $post = find($id);
-        return view('posts.sho', compact('post'));
+        $post = Post::find($id);
+        return view('posts.show', compact('post'));
     }
 
     /**

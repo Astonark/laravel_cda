@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        @vite(['resources/css/app.scss'])
         <title>Laravel</title>
     </head>
     <body>
@@ -11,6 +12,12 @@
             <tr>
                 <th colspan="2">The table header</th>
             </tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Category</th>
+            <th>Tags</th>
+            <th>Supprimer</th>
             </thead>
             <tbody>
             @foreach($posts as $post)
@@ -18,6 +25,7 @@
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->content }}</td>
+                    <td>{{ $post->category->title ?? 'jajaj' }}</td>
                     <td><a href="{{ route('posts.edit', $post->id) }}">Modifier</a></td>
                     <td>
                         {!! Form::open(['route'=> ['posts.destroy', $post->id], 'method'=> 'delete']) !!}
