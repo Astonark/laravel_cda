@@ -9,6 +9,7 @@
                 <th>Contenu</th>
                 <th>Category</th>
                 <th>Tags</th>
+                <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
         </thead>
@@ -20,7 +21,8 @@
                         <a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
                     </td>
                     <td>{{ $post->content }}</td>
-                    <td>{{ $post->category->title ?? 'jajaj' }}</td>
+                    <td>{{ $post->category->title ?? 'aucune catégorie' }}</td>
+                    <td>{{ $post->tag->title ?? 'jojoj' }}</td>
                     <td>
                         <a href="{{ route('posts.edit', $post->id) }}">Modifier</a>
                     </td>
