@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-    </head>
+@extends('layout.app')
 
-    <body>
-        {!! Form::open(['route' => 'posts.store', 'method' => 'post']) !!}
+@section('content')
+    {!! Form::open(['route' => 'posts.store', 'method' => 'post', 'class' => 'test']) !!}
 
-        {!! Form::label('title', 'Titre') !!}
-        {!! Form::text('title') !!}
+    {!! Form::label('title', 'Titre') !!}
+    {!! Form::text('title') !!}
 
-        {!! Form::label('content', 'Contenu') !!}
-        {!! Form::textarea('content') !!}
+    {!! Form::label('content', 'Contenu') !!}
+    {!! Form::textarea('content') !!}
 
-        {!! Form::submit('Envoyer') !!}
-        {!! Form::close() !!}
-    </body>
-</html>
+    {!! Form::label('category', 'la category') !!}
+    {!! Form::select('category_id', $categories) !!}
+
+    {!! Form::submit('Envoyer') !!}
+    {!! Form::close() !!}
+@endsection

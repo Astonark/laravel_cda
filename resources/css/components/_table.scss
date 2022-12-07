@@ -1,0 +1,32 @@
+.crud-table {
+    margin: auto;
+    border-collapse: collapse;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    th,
+    td {
+        padding: 12px 15px;
+    }
+
+    .crud-table__header {
+        background-color: coral;
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .crud-table__body {
+        tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+    }
+}

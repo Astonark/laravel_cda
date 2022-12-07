@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-    </head>
-    <body>
-        <table>
-            <thead>
+@extends('layout.app')
+
+@section('content')
+    <table class="crud-table">
+        <thead class="crud-table__header">
             <tr>
-                <th colspan="2">The table header</th>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Modifier</th>
+                <th>Modifier</th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody class="crud-table__body">
             @foreach($categories as $category)
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->title }}</td>
-                    <td><a href="{{ route('categories.edit', $category->id) }}">Modifier</a></td>
+                    <td>
+                        <a href="{{ route('categories.edit', $category->id) }}">Modifier</a>
+                    </td>
                     <td>
                         {!! Form::open(['route'=> ['categories.destroy', $category->id], 'method'=> 'delete']) !!}
                         {!! Form::submit('Supprimer') !!}
@@ -25,9 +25,8 @@
                     </td>
                 </tr>
             @endforeach
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
-        <a href="{{ route('categories.create') }}">Nouvelle article</a>
-    </body>
-</html>
+    <a href="{{ route('categories.create') }}">Nouvelle article</a>
+@endsection

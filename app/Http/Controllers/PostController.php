@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class PostController extends Controller
      */
     public function create(): View
     {
-        return view('posts.create');
+        $categories = Category::all('id', 'title')->pluck('id', 'title');
+        return view('posts.create', compact('categories'));
     }
 
     /**

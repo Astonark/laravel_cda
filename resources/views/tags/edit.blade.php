@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.app')
 
-    <title>Laravel</title>
-
-</head>
-<body class="antialiased">
-    {!! Form::open(['route'=> ['categories.update', $category->id], 'method' => 'put']) !!}
+@section('content')
+    {!! Form::open(['route'=> ['tags.update', $tag->id], 'method' => 'put']) !!}
 
     {!! Form::label('title', 'Titre') !!}
-    {!! Form::text('title', $category->title) !!}
+    {!! Form::text('title', $tag->title) !!}
 
     {!! Form::submit('Envoyer') !!}
     {!! Form::close() !!}
-</body>
-</html>
+@endsection
