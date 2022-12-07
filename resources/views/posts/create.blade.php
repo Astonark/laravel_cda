@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    {!! Form::open(['route' => 'posts.store', 'method' => 'post', 'class' => 'test']) !!}
+    {!! Form::open(['route' => 'posts.store', 'method' => 'post', 'class' => 'crud-form']) !!}
 
     {!! Form::label('title', 'Titre') !!}
     {!! Form::text('title') !!}

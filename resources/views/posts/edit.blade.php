@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    {!! Form::open(['route'=> ['posts.update', $post->id], 'method' => 'put']) !!}
+    {!! Form::open(['route'=> ['posts.update', $post->id], 'class' => 'crud-form', 'method' => 'put']) !!}
 
     {!! Form::label('title', 'Titre') !!}
     {!! Form::text('title', $post->title) !!}
